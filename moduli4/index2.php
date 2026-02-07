@@ -63,4 +63,5 @@ for ($i= 0; $i < count($sport); $i++) {
     echo "<span class='blue'>".$sport[$i]."</span><hr>";
 }
 
+$numbers = []
 ?>
