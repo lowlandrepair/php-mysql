@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fati
-    </title>
+    <title>fati</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
         }
+
         .dog-container {
             border: 2px solid #333;
             padding: 15px;
@@ -17,28 +17,54 @@
             background-color: white;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         .dog-name {
             font-weight: bold;
             font-size: 20px;
             margin-bottom: 10px;
         }
+
         .dog-origin {
             color: #888;
             font-size: 16px;
         }
+
         .dog-life-span {
             font-size: 16px;
+        }
+
+        .iphone {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .iphone .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .grade {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
-    <table>
-        <tr>
-            <th>phones</th>
-            <th>syock</th>
-            <th>sold</th>
-        </tr>
-    </table>
     <?php
     $dogs = [
         array("Husky", "Siberia", 15),
@@ -46,38 +72,55 @@
         array("Chihuahua", "Mexico", 20)
     ];
 
-   echo '<div class="dog-container">';
-    echo '  <div class="dog-name">' . $dogs[0][0] . '</div>';
-    echo '  <div class="dog-origin">Origin: ' . $dogs[0][1] . '</div>';
-    echo '  <div class="dog-life-span">Life Span: ' . $dogs[0][2] . ' years</div>';
-    echo '</div>';
-
-    echo '<div class="dog-container">';
-    echo '  <div class="dog-name">' . $dogs[1][0] . '</div>';
-    echo '  <div class="dog-origin">Origin: ' . $dogs[1][1] . '</div>';
-    echo '  <div class="dog-life-span">Life Span: ' . $dogs[1][2] . ' years</div>';
-    echo '</div>';
-
-    echo '<div class="dog-container">';
-    echo '  <div class="dog-name">' . $dogs[2][0] . '</div>';
-    echo '  <div class="dog-origin">Origin: ' . $dogs[2][1] . '</div>';
-    echo '  <div class="dog-life-span">Life Span: ' . $dogs[2][2] . ' years</div>';
-    echo '</div>';
-
-
-$phones = [
-    ["Iphone 15", 20, 15],
-    ["Iphone 16", 30, 20],
-    ["iphone 17", 50, 50]
-];
-   for($row = 0; $row<3; $row++){
-    echo "<tr>";
-    for($col = 0; $col<3; $col++){
-        echo "<td>". $phones[$row][$col]. "</td>";
+    foreach ($dogs as $dog) {
+        echo '<div class="dog-container">';
+        echo '  <div class="dog-name">' . $dog[0] . '</div>';
+        echo '  <div class="dog-origin">Origin: ' . $dog[1] . '</div>';
+        echo '  <div class="dog-life-span">Life Span: ' . $dog[2] . ' years</div>';
+        echo '</div>';
     }
-    echo "</tr>";
-}
-echo "</table>"; 
+
+    $phones = [
+        array(
+            'name' => 'iphone',
+            'stock' => 5,
+            'sold' => 2
+        ),
+        array(
+            'name' => 'iphone',
+            'stock' => 10,
+            'sold' => 5
+        ),
+        array(
+            'name' => 'iphone',
+            'stock' => 0,
+            'sold' => 10
+        )
+    ];
+
+    foreach ($phones as $phone) {
+        echo '<div class="iphone">';
+        echo '  <div class="info">';
+        echo '    <div>' . $phone['name'] . '</div>';
+        echo '    <div>Stock: ' . $phone['stock'] . '</div>';
+        echo '    <div>Sold: ' . $phone['sold'] . '</div>';
+        echo '  </div>';
+        echo '</div>';
+    }
+
+    $grades = [
+        "Matematike" => 3,
+        "Biologji" => 2,
+        "Histori" => 5,
+        "Muzik" => 4
+    ];
+
+    foreach ($grades as $subject => $grade) {
+        echo '<div class="grade">';
+        echo '  <div>' . $subject . '</div>';
+        echo '  <div>' . $grade . '</div>';
+        echo '</div>';
+    }
     ?>
 </body>
 </html>
