@@ -71,19 +71,15 @@ $users = $getusers->fetchAll(PDO::FETCH_ASSOC);
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Email</th>
+                <th>Username</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach($users as $user): ?>
             <tr>
-                <td><?= $user['id'] ?></td>
-                <td><?= $user['name'] ?></td>
-                <td><?= $user['surname'] ?></td>
-                <td><?= $user['email'] ?></td>
+                <td><?= htmlspecialchars($user['id']) ?></td>
+                <td><?= htmlspecialchars($user['username']) ?></td>
                 <td>
                     <button onclick="window.location.href='edit.php?id=<?= $user['id'] ?>'">Edit</button>
                     <button onclick="confirmDelete(<?= $user['id'] ?>)">Delete</button>

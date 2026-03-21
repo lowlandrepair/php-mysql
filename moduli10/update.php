@@ -3,17 +3,22 @@ include 'config.php';
 
 if(isset($_POST['update'])) {
     $id = $_POST['id'];
-    $name = $_POST['name'];
-    $surname = $_POST['surname'];
-    $email = $_POST['email'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
     
     try {
-        $sql = "UPDATE users SET name = :name, surname = :surname, email = :email WHERE id = :id";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':name', $name);
-        $stmt->bindParam(':surname', $surname);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':id', $id);
+        if(!empty($password)) {
+            $sql = "UPDATE users SET username = :username, password = :password WHERE id = :id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':password', $password);
+            $stmt->bindParam(':id', $id);
+        } else {
+            $sql = "UPDATE users SET username = :username WHERE id = :id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':id', $id);
+        }
         $stmt->execute();
         
         header("Location: dashboard.php");

@@ -9,17 +9,22 @@ if(!isset($_GET['id'])) {
 $id = $_GET['id'];
 
 if(isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    $surname = $_POST['surname'];
-    $email = $_POST['email'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
     
     try {
-        $sql = "UPDATE users SET name = :name, surname = :surname, email = :email WHERE id = :id";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':name', $name);
-        $stmt->bindParam(':surname', $surname);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':id', $id);
+        if(!empty($password)) {
+            $sql = "UPDATE users SET username = :username, password = :password WHERE id = :id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':password', $password);
+            $stmt->bindParam(':id', $id);
+        } else {
+            $sql = "UPDATE users SET username = :username WHERE id = :id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':id', $id);
+        }
         $stmt->execute();
         
         header("Location: dashboard.php");
@@ -59,16 +64,12 @@ try {
         
         <form action="edit.php?id=<?= $id ?>" method="POST">
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" value="<?= htmlspecialchars($user['name']) ?>" required>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" value="<?= htmlspecialchars($user['username']) ?>" required>
             </div>
             <div class="form-group">
-                <label for="surname">Surname</label>
-                <input type="text" id="surname" name="surname" value="<?= htmlspecialchars($user['surname']) ?>" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Leave blank to keep current password">
             </div>
             <button type="submit" name="submit">Update User</button>
         </form>

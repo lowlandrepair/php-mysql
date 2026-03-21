@@ -12,20 +12,22 @@
         include_once('config.php');
 
         if(isset($_POST['submit'])) {
-            $name = $_POST['name'];
-            $surname = $_POST['surname'];
-            $email = $_POST['email'];
+            $username = $_POST['username'];
+            $password = $_POST['password'];
             
-            $sql = "insert into user (name, surname, email) values (:name, :surname, :email)";
-            $sqlQuery = $conn->prepare($sql);
-            
-            $sqlQuery->bindParam(":name", $name);
-            $sqlQuery->bindParam(":surname", $surname);
-            $sqlQuery->bindParam(":email", $email);
-            
-            $sqlQuery->execute();
-            
-            echo "<div class='success-message'>Data saved successfully!</div>";
+            try {
+                $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
+                $sqlQuery = $pdo->prepare($sql);
+                
+                $sqlQuery->bindParam(":username", $username);
+                $sqlQuery->bindParam(":password", $password);
+                
+                $sqlQuery->execute();
+                
+                echo "<div class='success-message'>User added successfully!</div>";
+            } catch(PDOException $e) {
+                echo "Error adding user: " . $e->getMessage();
+            }
         }
         ?>
         
@@ -33,16 +35,12 @@
         
         <form action="add.php" method="POST">
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter username" required>
             </div>
             <div class="form-group">
-                <label for="surname">Surname</label>
-                <input type="text" id="surname" name="surname" placeholder="Enter your surname" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter password" required>
             </div>
             <button type="submit" name="submit">Add User</button>
         </form>
