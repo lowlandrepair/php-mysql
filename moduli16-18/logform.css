@@ -1,0 +1,178 @@
+/* Sliding Login/Signup Form Styles */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+   font-family: 'Montserrat', sans-serif;
+   background: #f7edd5;
+   margin: 0;
+   padding: 0;
+}
+
+.container {
+   max-width: 900px;
+   margin: 40px auto;
+   padding: 0 15px;
+}
+
+section#formHolder {
+   background: #fff;
+   border-radius: 8px;
+   overflow: hidden;
+   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+   position: relative;
+   min-height: 540px;
+}
+
+/* The sliding black box */
+.sliding-box {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 50%;
+   height: 100%;
+   background: linear-gradient(135deg, #333 0%, #1a1a1a 100%);
+   z-index: 10;
+   transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   color: #fff;
+   text-align: center;
+   padding: 40px;
+}
+
+.sliding-box h2 {
+   font-size: 50px;
+   font-weight: 700;
+   text-transform: uppercase;
+   margin-bottom: 10px;
+}
+
+.sliding-box p {
+   font-size: 15px;
+   font-weight: 300;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+   font-family: 'Raleway', sans-serif;
+}
+
+/* When active, slide to right */
+.row.signup-active .sliding-box {
+   left: 50%;
+}
+
+/* Forms container */
+.forms-container {
+   display: flex;
+   width: 100%;
+   min-height: 540px;
+}
+
+/* Each form panel */
+.form-panel {
+   flex: 0 0 50%;
+   width: 50%;
+   padding: 60px 40px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+/* Form styling */
+form {
+   width: 100%;
+}
+
+.form-group {
+   margin-bottom: 15px;
+   position: relative;
+}
+
+.form-group label {
+   display: block;
+   font-size: 12px;
+   font-weight: 400;
+   text-transform: uppercase;
+   color: #bbbbbb;
+   margin-bottom: 5px;
+}
+
+.form-group input {
+   width: 100%;
+   background: none;
+   border: none;
+   border-bottom: 1px solid #eee;
+   padding: 10px 0;
+   font-size: 15px;
+   font-family: 'Montserrat', sans-serif;
+   color: #444;
+}
+
+.form-group input:focus {
+   border-bottom-color: #f95959;
+   outline: none;
+}
+
+.form-group span.error {
+   color: #f95959;
+   font-size: 12px;
+   display: none;
+}
+
+.CTA {
+   margin-top: 30px;
+}
+
+.CTA input[type="submit"] {
+   font-size: 12px;
+   text-transform: uppercase;
+   padding: 10px 30px;
+   background: #f95959;
+   color: #fff;
+   border-radius: 30px;
+   border: none;
+   font-family: 'Montserrat', sans-serif;
+   cursor: pointer;
+}
+
+.CTA a.switch {
+   font-size: 13px;
+   font-weight: 400;
+   font-family: 'Montserrat', sans-serif;
+   color: #bbbbbb;
+   text-decoration: underline;
+   margin-left: 15px;
+   cursor: pointer;
+}
+
+.CTA a.switch:hover {
+   color: #f95959;
+}
+
+footer {
+   text-align: center;
+   padding: 20px;
+}
+
+footer p {
+   color: #777;
+   font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+   .sliding-box {
+      width: 100%;
+      height: 200px;
+      position: relative;
+   }
+   .forms-container {
+      flex-direction: column;
+   }
+   .form-panel {
+      flex: 0 0 100%;
+      width: 100%;
+   }
+}

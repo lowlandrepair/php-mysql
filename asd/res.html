@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blerta Jashari – Software Engineer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    /* HEADER */
+    header {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 44px 52px 32px;
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    header .tagline {
+      font-size: 0.88rem;
+      color: #aaa;
+      margin-top: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #333;
+    }
+
+    .contact-bar a,
+    .contact-bar span {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 0.84rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .contact-bar a:hover { color: #fff; }
+
+    /* LAYOUT */
+    .body-grid {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+    }
+
+    /* SIDEBAR */
+    aside {
+      background: #fafafa;
+      padding: 32px 24px;
+      border-right: 1px solid #ebebeb;
+    }
+
+    .s-section { margin-bottom: 26px; }
+
+    .s-section h3 {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #888;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #f0f0f0;
+      color: #333;
+      border-radius: 3px;
+      padding: 2px 8px;
+      font-size: 0.76rem;
+      margin: 2px 2px 2px 0;
+      font-weight: 500;
+    }
+
+    .s-item {
+      font-size: 0.84rem;
+      color: #555;
+      margin-bottom: 5px;
+      padding-left: 10px;
+      border-left: 2px solid #ddd;
+      line-height: 1.5;
+    }
+
+    /* MAIN */
+    main { padding: 32px 40px; }
+
+    .section { margin-bottom: 28px; }
+
+    .section h2 {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #888;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 5px;
+      margin-bottom: 16px;
+    }
+
+    .summary-text {
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.8;
+    }
+
+    .summary-text strong { color: #1a1a1a; }
+
+    /* COMPANY BLOCK */
+    .company-block { margin-bottom: 18px; }
+
+    .company-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .company-name { font-size: 0.98rem; font-weight: 700; color: #1a1a1a; }
+    .company-location { font-size: 0.8rem; color: #999; }
+    .company-dates { font-size: 0.8rem; color: #999; white-space: nowrap; }
+
+    /* ROLE */
+    .role {
+      margin-bottom: 12px;
+      padding-left: 14px;
+      border-left: 2px solid #e0e0e0;
+    }
+
+    .role-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+
+    .role-title { font-size: 0.9rem; font-weight: 700; color: #1a1a1a; }
+    .role-date { font-size: 0.78rem; color: #999; white-space: nowrap; }
+
+    .role ul { padding-left: 16px; margin-top: 4px; }
+    .role ul li { font-size: 0.84rem; color: #555; margin-bottom: 4px; }
+
+    .stack-line {
+      font-size: 0.78rem;
+      color: #888;
+      margin-top: 8px;
+      padding-left: 14px;
+      font-style: italic;
+    }
+
+    .stack-line span { font-weight: 700; color: #555; font-style: normal; }
+
+    /* SINGLE ROLE CARD */
+    .exp-card {
+      margin-bottom: 14px;
+      padding-left: 14px;
+      border-left: 2px solid #e0e0e0;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .exp-role { font-size: 0.92rem; font-weight: 700; color: #1a1a1a; }
+    .exp-company { font-size: 0.83rem; color: #555; font-weight: 600; }
+    .exp-date { font-size: 0.78rem; color: #999; white-space: nowrap; }
+
+    .exp-card ul { padding-left: 16px; margin-top: 6px; }
+    .exp-card ul li { font-size: 0.84rem; color: #555; margin-bottom: 4px; }
+
+    /* EDUCATION */
+    .edu-item {
+      margin-bottom: 14px;
+      padding-left: 14px;
+      border-left: 2px solid #e0e0e0;
+    }
+
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .edu-degree { font-size: 0.9rem; font-weight: 700; color: #1a1a1a; }
+    .edu-school { font-size: 0.83rem; color: #555; font-weight: 600; }
+    .edu-date { font-size: 0.78rem; color: #999; white-space: nowrap; }
+    .edu-note { font-size: 0.8rem; color: #777; margin-top: 3px; font-style: italic; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 12px;
+      font-size: 0.74rem;
+      color: #bbb;
+      background: #fafafa;
+      border-top: 1px solid #ebebeb;
+    }
+
+    @media (max-width: 660px) {
+      .body-grid { grid-template-columns: 1fr; }
+      header { padding: 28px 22px; }
+      header h1 { font-size: 1.8rem; }
+      main { padding: 24px 20px; }
+      aside { border-right: none; border-bottom: 1px solid #ebebeb; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <h1>Blerta Jashari</h1>
+    <div class="tagline">Software Engineer &nbsp;&middot;&nbsp; .NET &nbsp;&middot;&nbsp; Microservices &nbsp;&middot;&nbsp; Cloud-Native &nbsp;&middot;&nbsp; Team Lead</div>
+    <div class="contact-bar">
+      <a href="mailto:blertaaj@live.com">&#9993; blertaaj@live.com</a>
+      <span>&#128222; +383 44-882-357</span>
+      <span>&#127758; Pristina, Kosovo</span>
+      <a href="https://github.com/BlertaJ" target="_blank">&#128736; GitHub</a>
+      <a href="https://linkedin.com/in/blertajashari" target="_blank">&#128101; LinkedIn</a>
+    </div>
+  </header>
+
+  <div class="body-grid">
+
+    <!-- SIDEBAR -->
+    <aside>
+
+      <div class="s-section">
+        <h3>Languages &amp; Frameworks</h3>
+        <span class="tag">C#</span>
+        <span class="tag">.NET 8</span>
+        <span class="tag">ASP.NET Core</span>
+        <span class="tag">EF Core</span>
+        <span class="tag">Blazor</span>
+        <span class="tag">React</span>
+        <span class="tag">JavaScript</span>
+      </div>
+
+      <div class="s-section">
+        <h3>Architecture &amp; APIs</h3>
+        <span class="tag">Microservices</span>
+        <span class="tag">Clean Architecture</span>
+        <span class="tag">DDD</span>
+        <span class="tag">REST</span>
+        <span class="tag">gRPC</span>
+        <span class="tag">Kafka</span>
+        <span class="tag">RabbitMQ</span>
+        <span class="tag">Event-Driven</span>
+      </div>
+
+      <div class="s-section">
+        <h3>Cloud &amp; DevOps</h3>
+        <span class="tag">Azure DevOps</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Azure</span>
+        <span class="tag">GitHub Actions</span>
+        <span class="tag">CI/CD</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">Agile/Scrum</span>
+      </div>
+
+      <div class="s-section">
+        <h3>Databases &amp; Caching</h3>
+        <span class="tag">SQL Server</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Redis</span>
+        <span class="tag">Query Optimisation</span>
+        <span class="tag">OpenTelemetry</span>
+      </div>
+
+      <div class="s-section">
+        <h3>AI &amp; Emerging</h3>
+        <span class="tag">Azure OpenAI</span>
+        <span class="tag">Semantic Kernel</span>
+        <span class="tag">GitHub Copilot</span>
+      </div>
+
+      <div class="s-section">
+        <h3>Languages</h3>
+        <div class="s-item">Albanian &mdash; Native</div>
+        <div class="s-item">English &mdash; Professional</div>
+      </div>
+
+      <div class="s-section">
+        <h3>Interests</h3>
+        <div class="s-item">Volleyball</div>
+        <div class="s-item">Pilates</div>
+        <div class="s-item">Travelling</div>
+        <div class="s-item">Creative pursuits</div>
+      </div>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+
+      <!-- SUMMARY -->
+      <div class="section">
+        <h2>Summary</h2>
+        <p class="summary-text">
+          Software Engineer with <strong>5+ years</strong> building scalable .NET microservices and event-driven platforms
+          serving multiple countries. Progressed from Junior to Senior to <strong>Team Lead</strong> at Gjirafa, Inc.
+          Delivered a <strong>40% API response-time improvement</strong> via Redis caching and query optimisation.
+          Experienced with Kafka, Azure DevOps, Docker, SQL Server, MongoDB, and React. Passionate about engineering
+          excellence and mentoring the next generation of developers.
+        </p>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="section">
+        <h2>Experience</h2>
+
+        <!-- Gjirafa -->
+        <div class="company-block">
+          <div class="company-header">
+            <div>
+              <span class="company-name">Gjirafa, Inc.</span>
+              <span class="company-location"> &nbsp;&middot;&nbsp; Pristina, Kosovo</span>
+            </div>
+            <span class="company-dates">Jan 2021 – Present</span>
+          </div>
+
+          <div class="role">
+            <div class="role-header">
+              <span class="role-title">Team Lead &amp; Senior Software Engineer</span>
+              <span class="role-date">Jan 2026 – Present</span>
+            </div>
+            <ul>
+              <li>Led a team of 4 engineers — sprint planning, code reviews, and 1-on-1s, improving delivery velocity by 30%.</li>
+              <li>Defined microservices migration roadmap and managed Azure DevOps pipelines, boards, and release workflows.</li>
+            </ul>
+          </div>
+
+          <div class="role">
+            <div class="role-header">
+              <span class="role-title">Senior Software Engineer</span>
+              <span class="role-date">Jan 2025 – Jan 2026</span>
+            </div>
+            <ul>
+              <li>Architected Kafka-based microservices for real-time pricing &amp; inventory, scaling the platform across multiple countries.</li>
+              <li>Introduced MongoDB and designed document-based schemas to support high-throughput, flexible data models.</li>
+              <li>Drove adoption of Clean Architecture and DDD principles, improving codebase maintainability and team consistency.</li>
+              <li>Deployed and managed containerised services on Kubernetes, improving scalability and deployment reliability.</li>
+              <li>Led technical decision-making on architecture, tech stack choices, and system design across the team.</li>
+            </ul>
+          </div>
+
+          <div class="role">
+            <div class="role-header">
+              <span class="role-title">Software Engineer</span>
+              <span class="role-date">Jan 2022 – Jan 2025</span>
+            </div>
+            <ul>
+              <li>Owned end-to-end delivery of core platform features — from technical design decisions to production deployment.</li>
+              <li>Cut API response times 40% with Redis caching and optimised queries across SQL Server.</li>
+              <li>Built RESTful APIs (ASP.NET Core), contributed to pricing engine, and shipped React front-end features.</li>
+              <li>Designed and optimised DB schemas in SQL Server; integrated RabbitMQ for async inter-service messaging.</li>
+              <li>Mentored 2 junior developers through code reviews, pair programming, and technical guidance.</li>
+            </ul>
+          </div>
+
+          <div class="role">
+            <div class="role-header">
+              <span class="role-title">Junior Software Developer → Software Developer</span>
+              <span class="role-date">Jan 2021 – Jan 2022</span>
+            </div>
+            <ul>
+              <li>Onboarded onto the engineering team, developing and maintaining backend services using ASP.NET Core and SQL Server.</li>
+              <li>Contributed to internal tooling and quickly progressed from junior to independent contributor within the year.</li>
+            </ul>
+          </div>
+
+          <div class="stack-line">
+            <span>Stack:</span> C# &middot; ASP.NET Core &middot; EF Core &middot; SQL Server &middot; MongoDB &middot; Kafka &middot; RabbitMQ &middot; Redis &middot; Docker &middot; React &middot; Azure DevOps
+          </div>
+        </div>
+
+        <!-- BIT -->
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Part-time Instructor</div>
+              <div class="exp-company">Besa Institute of Technology &nbsp;&middot;&nbsp; Drenas, Kosovo</div>
+            </div>
+            <span class="exp-date">Jan 2023 – Present</span>
+          </div>
+          <ul>
+            <li>Delivered curriculum on .NET, ASP.NET Core, Blazor &amp; SQL to aspiring developers.</li>
+            <li>Built the BIT School website in Blazor as a hands-on project with students.</li>
+          </ul>
+        </div>
+
+        <!-- IMB -->
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Software Developer Intern</div>
+              <div class="exp-company">IMB &nbsp;&middot;&nbsp; Tirana, Albania (Remote)</div>
+            </div>
+            <span class="exp-date">Jun 2020 – Jan 2021</span>
+          </div>
+          <ul>
+            <li>Developed and optimised software solutions with cross-functional teams, applying security best practices.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="section">
+        <h2>Education</h2>
+
+        <div class="edu-item">
+          <div class="edu-header">
+            <div>
+              <div class="edu-degree">BSc Computer Engineering</div>
+              <div class="edu-school">University of Pristina &nbsp;&middot;&nbsp; Pristina, Kosovo</div>
+            </div>
+            <span class="edu-date">2017 – 2021</span>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-header">
+            <div>
+              <div class="edu-degree">Erasmus Exchange – Computer Systems</div>
+              <div class="edu-school">Riga Technical University &nbsp;&middot;&nbsp; Riga, Latvia</div>
+            </div>
+            <span class="edu-date">Jan – Jun 2020</span>
+          </div>
+          <div class="edu-note">Built a campus classroom-finder website in collaboration with faculty and international peers.</div>
+        </div>
+      </div>
+
+      <!-- CERTIFICATIONS -->
+      <div class="section">
+        <h2>Certifications</h2>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
+          <span class="tag">Distinguished Software Engineer – STIKK</span>
+          <span class="tag">DevOps – AUK</span>
+          <span class="tag">Cyber Security – VentureUP</span>
+          <span class="tag">IoT – AUK / RIT</span>
+          <span class="tag">Java – VentureUP</span>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2026 Blerta Jashari &nbsp;&middot;&nbsp; Built with HTML &amp; CSS &nbsp;&middot;&nbsp; Hosted on GitHub Pages
+  </footer>
+
+</div>
+</body>
+</html>
