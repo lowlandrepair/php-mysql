@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    animation: gradientShift 15s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.row {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.6s ease-out;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding: 25px;
+    text-align: center;
+    border: none;
+    letter-spacing: 1px;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.form-control {
+    height: 50px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 12px 15px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+    background: white;
+    transform: translateY(-2px);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.input-group-append button {
+    border-radius: 0 12px 12px 0;
+    border: 2px solid #e0e0e0;
+    border-left: none;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.input-group-append button:hover {
+    background: #667eea;
+    color: white;
+    transform: scale(1.05);
+}
+
+select.form-control {
+    cursor: pointer;
+}
+
+select:hover {
+    background: #e9ecef;
+}
+
+.login-or {
+    position: relative;
+    font-size: 14px;
+    color: #888;
+    margin: 25px 0;
+    text-align: center;
+}
+
+.span-or {
+    display: inline-block;
+    position: relative;
+    background: white;
+    padding: 0 15px;
+    z-index: 1;
+}
+
+.hr-or {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    border: none;
+    border-top: 2px dashed #ddd;
+    margin: 0;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.social-buttons a {
+    flex: 1;
+    border-radius: 12px;
+    padding: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-fb {
+    background: linear-gradient(135deg, #3b5998, #4c70ba);
+    border: none;
+    color: white;
+}
+
+.btn-fb:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(59, 89, 152, 0.4);
+    color: white;
+}
+
+.btn-tw {
+    background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+    border: none;
+    color: white;
+}
+
+.btn-tw:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(29, 161, 242, 0.4);
+    color: white;
+}
+
+.progress {
+    height: 6px;
+    border-radius: 10px;
+    background: #e0e0e0;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.progress-bar {
+    transition: width 0.5s ease, background-color 0.3s ease;
+    border-radius: 10px;
+}
+
+.password-rule {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 10px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.password-rule ul li {
+    padding: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.password-rule ul li.text-success {
+    transform: translateX(10px);
+}
+
+.password-rule .fa-check-circle {
+    transition: all 0.3s ease;
+}
+
+.password-rule .text-success .fa-check-circle {
+    color: #28a745;
+    transform: scale(1.2);
+}
+
+.block-help {
+    font-weight: 400;
+    font-size: 13px;
+}
+
+#reg-password-quality {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.hide {
+    display: none !important;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 12px;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:disabled {
+    background: #ccc;
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.form-check {
+    padding-left: 30px;
+}
+
+.form-check-input {
+    width: 20px;
+    height: 20px;
+    margin-left: -30px;
+    cursor: pointer;
+}
+
+.form-check-label {
+    cursor: pointer;
+    font-size: 14px;
+    color: #666;
+}
+
+.bottom {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.bottom a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.bottom a:hover {
+    color: #764ba2;
+}
+
+#error-confirmpassword {
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@media (max-width: 768px) {
+    .card {
+        margin: 20px;
+    }
+    .social-buttons {
+        flex-direction: column;
+    }
+}
